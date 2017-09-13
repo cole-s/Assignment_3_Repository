@@ -22,27 +22,7 @@ public class Control {
     }// end of findClosestPair
     
 //======================Sorting by X value======================================
-    public static void mergeSortX(Point[] array2, Point[] array3, Point[] array1){
-        int index1 = 0;
-        int index2 = 0;
-        int index3 = 0;
-        while((index1 < array2.length)&&(index2 < array3.length)){
-            if(array2[index1].getX() <= array3[index2].getX()){
-                array1[index3] = array2[index1];
-                index1++;
-            } else {
-                array1[index3] = array3[index2];
-                index2++;
-            }// end of if-else statements
-            index3++;
-        }// end of while loop
-        if(index1 == array2.length){
-            System.arraycopy(array3, index2, array1, index3, array3.length-index2);
-        } else {
-            System.arraycopy(array2, index1, array1, index3, array2.length-index1);
-        }// end of if-else statements
-    }// end of mergeSort
-    
+       
     public static void quickSortX(Point[] array, int left, int right){
         if(left < right){
             int split = hoarePartitioningX(array, left, right);
@@ -77,6 +57,25 @@ public class Control {
         
         return numr;
     }
+    //=====================Sorting by y value=======================================
+    public static void mergeSortY(Point[] array2, Point[] array3, Point[] array1){
+        int index1 = 0;
+        int index2 = 0;
+        int index3 = 0;
+        while((index1 < array2.length)&&(index2 < array3.length)){
+            if(array2[index1].getY() <= array3[index2].getY()){
+                array1[index3] = array2[index1];
+                index1++;
+            } else {
+                array1[index3] = array3[index2];
+                index2++;
+            }// end of if-else statements
+            index3++;
+        }// end of while loop
+        if(index1 == array2.length){
+            System.arraycopy(array3, index2, array1, index3, array3.length-index2);
+        } else {
+            System.arraycopy(array2, index1, array1, index3, array2.length-index1);
+        }// end of if-else statements
+    }// end of mergeSort
 }
-
-//=====================Sorting by Y value=======================================
