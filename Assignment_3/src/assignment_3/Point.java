@@ -23,4 +23,10 @@ public class Point {
     public int getX(){return this.x_coord;}
     public void setY(int new_y){this.y_coord = new_y;}
     public int getY(){return this.y_coord;}
+    
+    public String toString(){
+        String ret = "(";
+        ret = ret + x_coord + ", " + y_coord + ")";
+        return ret;
+    }
 }
