@@ -141,17 +141,18 @@ public class Control {
             
             for(int index = 0; index < num-1; index++){
                 int k = index + 1;
-                double y_diff = S[k].getY() - S[index].getY();
-                do{
+                
+                while((k <= num-1) && Math.pow( S[k].getY() - S[index].getY(), 2) < dMinSq){
+                    double y_diff = (double) (S[k].getY() - S[index].getY());
                     double x_diff = S[k].getX() - S[index].getX();
-                    dMinSq = Math.min((Math.pow(x_diff, 2) + Math.pow(y_diff, 2)), dMinSq);
+                    dMinSq = Math.min((Math.pow(x_diff, 2) + Math.pow( y_diff, 2)), dMinSq);
                     if(dis == -1.0 || dis > dMinSq){
                         dis = dMinSq;
                         pointa = S[k];
                         pointb = S[index];   
-                    }
+                    }// end of if statement
                     k++;
-                }while((k <= num-1) && Math.pow( y_diff, 2) < dMinSq);
+                } // end of while loop
                 // end of do while loop
             } // end of for loop
         } // end of if-else statements
